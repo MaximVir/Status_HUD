@@ -14,19 +14,85 @@ namespace Rhaegal
     public partial class Main : Form
     {
         readonly SQLmethods m = new SQLmethods();
+        public string Alias;
 
         public Main()
         {
             InitializeComponent();
+            groupBox1.Visible = false;
         }
 
         private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            string Status, Alias;
-            Alias = "Rhaegal";
+            string Status;
             Status = "Idle";
 
             m.SetStatus(Status, Alias);
+        }
+
+        private void RadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            string Status;
+            Status = "In-Flight";
+            m.SetStatus(Status, Alias);
+        }
+
+        private void RadioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            string Status;
+            Status = "Lunch";
+            m.SetStatus(Status, Alias);
+        }
+
+        private void RadioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            string Status;
+            Status = "AFK";
+            m.SetStatus(Status, Alias);
+        }
+
+        private void RadioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            string Status;
+            Status = "Training";
+            m.SetStatus(Status, Alias);
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            ActiveForm.AcceptButton = button1;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Alias = textBox1.Text;
+            int count = m.CheckExistance(Alias);
+
+            if (count > 0)
+            {
+                groupBox1.Visible = true;
+                textBox1.Enabled = false;
+                button1.Enabled = false;
+                label1.Text = Alias;
+
+            }
+            else { MessageBox.Show("gd"); }
+        }
+
+        public void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            m.PostToBoard();
+        }
+
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            richTextBox1.Text = "fkldsjflksjdlkfjlksdjflkjsdkjsdfkjklsdjfklsjdlfsdkf0";
         }
     }
 }

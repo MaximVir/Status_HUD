@@ -13,16 +13,27 @@ namespace Rhaegal
 {
     public class SQLmethods : SQLabstract
     {
-        string Status, Alias, cmdString;
-        SqlDataReader Reader;
-
-        
-
 
         public override void PostToBoard()
         {
-            using (SqlConnection cnn = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
             {
+                command.CommandText = "Select Alias, Status from Operators Where Status != 'null'";
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                string board = "";
+
+                while (reader.Read())
+                {
+                    string post = "||\t" + (string)reader.GetValue(0) + "\t|\t" + (String)reader.GetValue(1) + "\t||" + "\n";
+                    board = board + post;
+                    
+                    //richtextbox1.Text =
+                }
+                MessageBox.Show(board);
+                connection.Close();
 
             }
         }
@@ -31,31 +42,38 @@ namespace Rhaegal
         {
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
-                cnn.Open();
 
-                SqlCommand command = new SqlCommand("update operators set Status = '@status' where Alias = '@alias';", cnn);
-                command.Parameters.AddWithValue("@status", Status);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "update operators set Status = @status where Alias = @alias;";
+
+                    command.Parameters.AddWithValue("@status", Status);
+                    command.Parameters.AddWithValue("@alias", Alias);
+
+                    connection.Open();
+
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+                }
+            }
+        }
+
+        public override int CheckExistance(string Alias)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) FROM Operators WHERE Alias = @alias;";
                 command.Parameters.AddWithValue("@alias", Alias);
 
-                //command.Connection.Open();
-                command.ExecuteNonQuery();
+                connection.Open();
+                int count = (int)command.ExecuteScalar();
+                connection.Close();
 
-                try
-                {
-                    //cnn.Open();
-                    //MessageBox.Show("good");
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("bad");
-                }
+                return count;
 
-
-
-
-
-
-                cnn.Close();
             }
         }
     }
