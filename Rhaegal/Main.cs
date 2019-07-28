@@ -85,14 +85,19 @@ namespace Rhaegal
         }
 
         private void Button2_Click(object sender, EventArgs e)
-        {
-            m.PostToBoard();
+        { 
+
         }
 
         private void RichTextBox1_TextChanged(object sender, EventArgs e)
         {
+           
+        }
 
-            richTextBox1.Text = "fkldsjflksjdlkfjlksdjflkjsdkjsdfkjklsdjfklsjdlfsdkf0";
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            string newBoard = m.PostToBoard();
+            richTextBox1.Text = newBoard;
         }
     }
 }

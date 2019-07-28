@@ -14,8 +14,10 @@ namespace Rhaegal
     public class SQLmethods : SQLabstract
     {
 
-        public override void PostToBoard()
+        public override string PostToBoard()
         {
+            string board = "";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -23,19 +25,18 @@ namespace Rhaegal
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                string board = "";
+                
 
                 while (reader.Read())
                 {
-                    string post = "||\t" + (string)reader.GetValue(0) + "\t|\t" + (String)reader.GetValue(1) + "\t||" + "\n";
+                    string post =(string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------------------------------------\n";
                     board = board + post;
                     
-                    //richtextbox1.Text =
                 }
-                MessageBox.Show(board);
-                connection.Close();
+                connection.Close();  
 
             }
+            return board;
         }
 
         public override void SetStatus(string Status, string Alias)

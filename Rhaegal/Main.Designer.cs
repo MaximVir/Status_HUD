@@ -246,14 +246,19 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Desktop;
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.richTextBox1.Location = new System.Drawing.Point(112, 46);
+            this.richTextBox1.Location = new System.Drawing.Point(13, 12);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(414, 402);
+            this.richTextBox1.Size = new System.Drawing.Size(274, 402);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
