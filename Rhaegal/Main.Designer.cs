@@ -45,15 +45,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cxpBox = new System.Windows.Forms.RichTextBox();
+            this.infraBox = new System.Windows.Forms.RichTextBox();
+            this.networkingBox = new System.Windows.Forms.RichTextBox();
             this.liveSiteBox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.networkingBox = new System.Windows.Forms.RichTextBox();
-            this.infraBox = new System.Windows.Forms.RichTextBox();
-            this.cxpBox = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,6 +79,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Black;
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
@@ -262,6 +263,81 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Snow;
+            this.label5.Location = new System.Drawing.Point(105, 422);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Infrastructure";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Snow;
+            this.label4.Location = new System.Drawing.Point(384, 421);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "CXP";
+            // 
+            // label3
+            // 
+            this.label3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Snow;
+            this.label3.Location = new System.Drawing.Point(384, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Networking";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Snow;
+            this.label2.Location = new System.Drawing.Point(105, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Livesite";
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
+            // 
+            // cxpBox
+            // 
+            this.cxpBox.BackColor = System.Drawing.Color.Black;
+            this.cxpBox.ForeColor = System.Drawing.Color.Yellow;
+            this.cxpBox.Location = new System.Drawing.Point(327, 455);
+            this.cxpBox.Name = "cxpBox";
+            this.cxpBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.cxpBox.Size = new System.Drawing.Size(210, 300);
+            this.cxpBox.TabIndex = 4;
+            this.cxpBox.Text = "";
+            // 
+            // infraBox
+            // 
+            this.infraBox.BackColor = System.Drawing.Color.Black;
+            this.infraBox.ForeColor = System.Drawing.Color.Cyan;
+            this.infraBox.Location = new System.Drawing.Point(42, 456);
+            this.infraBox.Name = "infraBox";
+            this.infraBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.infraBox.Size = new System.Drawing.Size(210, 300);
+            this.infraBox.TabIndex = 3;
+            this.infraBox.Text = "";
+            // 
+            // networkingBox
+            // 
+            this.networkingBox.BackColor = System.Drawing.Color.Black;
+            this.networkingBox.ForeColor = System.Drawing.Color.SpringGreen;
+            this.networkingBox.Location = new System.Drawing.Point(327, 71);
+            this.networkingBox.Name = "networkingBox";
+            this.networkingBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.networkingBox.Size = new System.Drawing.Size(210, 300);
+            this.networkingBox.TabIndex = 2;
+            this.networkingBox.Text = "";
+            // 
             // liveSiteBox
             // 
             this.liveSiteBox.BackColor = System.Drawing.Color.Black;
@@ -280,76 +356,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
-            // networkingBox
-            // 
-            this.networkingBox.BackColor = System.Drawing.Color.Black;
-            this.networkingBox.ForeColor = System.Drawing.Color.SpringGreen;
-            this.networkingBox.Location = new System.Drawing.Point(327, 71);
-            this.networkingBox.Name = "networkingBox";
-            this.networkingBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.networkingBox.Size = new System.Drawing.Size(210, 300);
-            this.networkingBox.TabIndex = 2;
-            this.networkingBox.Text = "";
-            // 
-            // infraBox
-            // 
-            this.infraBox.BackColor = System.Drawing.Color.Black;
-            this.infraBox.ForeColor = System.Drawing.Color.Cyan;
-            this.infraBox.Location = new System.Drawing.Point(42, 456);
-            this.infraBox.Name = "infraBox";
-            this.infraBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.infraBox.Size = new System.Drawing.Size(210, 300);
-            this.infraBox.TabIndex = 3;
-            this.infraBox.Text = "";
-            // 
-            // cxpBox
-            // 
-            this.cxpBox.BackColor = System.Drawing.Color.Black;
-            this.cxpBox.ForeColor = System.Drawing.Color.Yellow;
-            this.cxpBox.Location = new System.Drawing.Point(327, 455);
-            this.cxpBox.Name = "cxpBox";
-            this.cxpBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.cxpBox.Size = new System.Drawing.Size(210, 300);
-            this.cxpBox.TabIndex = 4;
-            this.cxpBox.Text = "";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Livesite";
-            // 
-            // label3
-            // 
-            this.label3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(384, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Networking";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 421);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "CXP";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(105, 422);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Infrastructure";
             // 
             // Main
             // 

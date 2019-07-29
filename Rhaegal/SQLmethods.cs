@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using System.Drawing.Printing;
 
 namespace Rhaegal
 {
@@ -25,15 +17,15 @@ namespace Rhaegal
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                
+
 
                 while (reader.Read())
                 {
                     string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
                     board[0] = board[0] + post;
-                    
+
                 }
-                connection.Close();  
+                connection.Close();
 
             }
 
