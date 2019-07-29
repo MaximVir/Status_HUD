@@ -1,4 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net.Mail;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Rhaegal
@@ -77,13 +86,13 @@ namespace Rhaegal
         }
 
         private void Button2_Click(object sender, EventArgs e)
-        {
+        { 
 
         }
 
         private void RichTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -95,6 +104,16 @@ namespace Rhaegal
             networkingBox.Text = newBoard[1];
             infraBox.Text = newBoard[2];
             cxpBox.Text = newBoard[3];
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
 
         }
     }
