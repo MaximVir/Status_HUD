@@ -33,6 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -44,9 +45,15 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.liveSiteBox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.networkingBox = new System.Windows.Forms.RichTextBox();
+            this.infraBox = new System.Windows.Forms.RichTextBox();
+            this.cxpBox = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,15 +79,23 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(928, 758);
-            this.splitContainer1.SplitterDistance = 309;
+            this.splitContainer1.Panel2.Controls.Add(this.label5);
+            this.splitContainer1.Panel2.Controls.Add(this.label4);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Controls.Add(this.cxpBox);
+            this.splitContainer1.Panel2.Controls.Add(this.infraBox);
+            this.splitContainer1.Panel2.Controls.Add(this.networkingBox);
+            this.splitContainer1.Panel2.Controls.Add(this.liveSiteBox);
+            this.splitContainer1.Panel2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.splitContainer1.Size = new System.Drawing.Size(853, 806);
+            this.splitContainer1.SplitterDistance = 284;
             this.splitContainer1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Rhaegal.Properties.Resources.rhaegal;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 637);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 641);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(294, 118);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -108,6 +123,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Controls";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(115, 321);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // groupBox1
             // 
@@ -218,12 +243,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(168, 48);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Sign-In";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
@@ -236,43 +262,108 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
-            // button2
+            // liveSiteBox
             // 
-            this.button2.Location = new System.Drawing.Point(115, 321);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.liveSiteBox.BackColor = System.Drawing.Color.Black;
+            this.liveSiteBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.liveSiteBox.ForeColor = System.Drawing.Color.LightPink;
+            this.liveSiteBox.Location = new System.Drawing.Point(42, 72);
+            this.liveSiteBox.Name = "liveSiteBox";
+            this.liveSiteBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.liveSiteBox.Size = new System.Drawing.Size(210, 300);
+            this.liveSiteBox.TabIndex = 1;
+            this.liveSiteBox.Text = "";
+            this.liveSiteBox.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // richTextBox1
+            // networkingBox
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Desktop;
-            this.richTextBox1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.richTextBox1.Location = new System.Drawing.Point(13, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(274, 402);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
+            this.networkingBox.BackColor = System.Drawing.Color.Black;
+            this.networkingBox.ForeColor = System.Drawing.Color.SpringGreen;
+            this.networkingBox.Location = new System.Drawing.Point(327, 71);
+            this.networkingBox.Name = "networkingBox";
+            this.networkingBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.networkingBox.Size = new System.Drawing.Size(210, 300);
+            this.networkingBox.TabIndex = 2;
+            this.networkingBox.Text = "";
+            // 
+            // infraBox
+            // 
+            this.infraBox.BackColor = System.Drawing.Color.Black;
+            this.infraBox.ForeColor = System.Drawing.Color.Cyan;
+            this.infraBox.Location = new System.Drawing.Point(42, 456);
+            this.infraBox.Name = "infraBox";
+            this.infraBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.infraBox.Size = new System.Drawing.Size(210, 300);
+            this.infraBox.TabIndex = 3;
+            this.infraBox.Text = "";
+            // 
+            // cxpBox
+            // 
+            this.cxpBox.BackColor = System.Drawing.Color.Black;
+            this.cxpBox.ForeColor = System.Drawing.Color.Yellow;
+            this.cxpBox.Location = new System.Drawing.Point(327, 455);
+            this.cxpBox.Name = "cxpBox";
+            this.cxpBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.cxpBox.Size = new System.Drawing.Size(210, 300);
+            this.cxpBox.TabIndex = 4;
+            this.cxpBox.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(105, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Livesite";
+            // 
+            // label3
+            // 
+            this.label3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(384, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Networking";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(384, 421);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "CXP";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(105, 422);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Infrastructure";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 758);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ClientSize = new System.Drawing.Size(853, 806);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Main";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -305,7 +396,14 @@
         public System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer1;
-        public System.Windows.Forms.RichTextBox richTextBox1;
+        public System.Windows.Forms.RichTextBox liveSiteBox;
+        public System.Windows.Forms.RichTextBox cxpBox;
+        public System.Windows.Forms.RichTextBox infraBox;
+        public System.Windows.Forms.RichTextBox networkingBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
 

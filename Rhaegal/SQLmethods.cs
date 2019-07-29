@@ -14,14 +14,14 @@ namespace Rhaegal
     public class SQLmethods : SQLabstract
     {
 
-        public override string PostToBoard()
+        public override string[] PostToBoard()
         {
-            string board = "";
+            string[] board = new string[4];
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "Select Alias, Status from Operators Where Status != 'null'";
+                command.CommandText = "Select Alias, Status from Operators Where Status != 'null' and Workstream = 'Livesite'";
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -29,13 +29,72 @@ namespace Rhaegal
 
                 while (reader.Read())
                 {
-                    string post =(string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------------------------------------\n";
-                    board = board + post;
+                    string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
+                    board[0] = board[0] + post;
                     
                 }
                 connection.Close();  
 
             }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "Select Alias, Status from Operators Where Status != 'null' and Workstream = 'Networking'";
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
+                    board[1] = board[1] + post;
+
+                }
+                connection.Close();
+
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "Select Alias, Status from Operators Where Status != 'null' and Workstream = 'Infra'";
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
+                    board[2] = board[2] + post;
+
+                }
+                connection.Close();
+
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "Select Alias, Status from Operators Where Status != 'null' and Workstream = 'CXP'";
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
+                    board[3] = board[3] + post;
+
+                }
+                connection.Close();
+
+            }
+
+
             return board;
         }
 
