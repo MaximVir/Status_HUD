@@ -107,8 +107,62 @@ namespace Rhaegal
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "Select Alias, Status from Operators Where Status != 'null' and Workstream = 'Networking'";
+                string currentDay = System.DateTime.Now.DayOfWeek.ToString();
+                string currentTime = DateTime.Now.TimeOfDay.ToString();
+                string begDay, endDay;
 
+                command.CommandText = "Select Alias, Status From Operators Where Workstream = 'Networking' and Shift IN(select Shift from Shifts where @time BETWEEN begMon and endMon or " +
+                                                                                                                            "Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
+                                                                                                                            "Shift = 'WkEndNiteA' and @time NOT BETWEEN endMon and begMon);";
+                command.Parameters.AddWithValue("@time", currentTime);
+
+                switch (currentDay)
+                {
+                    case "Monday":
+                        begDay = "begMon";
+                        endDay = "endMon";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Tuesday":
+                        begDay = "begTue";
+                        endDay = "endTue";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Wednesday":
+                        begDay = "begWed";
+                        endDay = "endWed";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Thursday":
+                        begDay = "begThu";
+                        endDay = "endThu";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Friday":
+                        begDay = "begFri";
+                        endDay = "endFri";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Saturday":
+                        begDay = "begSat";
+                        endDay = "endSat";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Sunday":
+                        begDay = "begSun";
+                        endDay = "endSun";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    default:
+                        break;
+                }
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -132,8 +186,62 @@ namespace Rhaegal
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "Select Alias, Status from Operators Where Status != 'null' and Workstream = 'Infra'";
+                string currentDay = System.DateTime.Now.DayOfWeek.ToString();
+                string currentTime = DateTime.Now.TimeOfDay.ToString();
+                string begDay, endDay;
 
+                command.CommandText = "Select Alias, Status From Operators Where Workstream = 'Infra' and Shift IN(select Shift from Shifts where @time BETWEEN begMon and endMon or " +
+                                                                                                                            "Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
+                                                                                                                            "Shift = 'WkEndNiteA' and @time NOT BETWEEN endMon and begMon);";
+                command.Parameters.AddWithValue("@time", currentTime);
+
+                switch (currentDay)
+                {
+                    case "Monday":
+                        begDay = "begMon";
+                        endDay = "endMon";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Tuesday":
+                        begDay = "begTue";
+                        endDay = "endTue";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Wednesday":
+                        begDay = "begWed";
+                        endDay = "endWed";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Thursday":
+                        begDay = "begThu";
+                        endDay = "endThu";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Friday":
+                        begDay = "begFri";
+                        endDay = "endFri";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Saturday":
+                        begDay = "begSat";
+                        endDay = "endSat";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Sunday":
+                        begDay = "begSun";
+                        endDay = "endSun";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    default:
+                        break;
+                }
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -169,8 +277,62 @@ namespace Rhaegal
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "Select Alias, Status from Operators Where Status != 'null' and Workstream = 'CXP'";
+                string currentDay = System.DateTime.Now.DayOfWeek.ToString();
+                string currentTime = DateTime.Now.TimeOfDay.ToString();
+                string begDay, endDay;
 
+                command.CommandText = "Select Alias, Status From Operators Where Workstream = 'CXP' and Shift IN(select Shift from Shifts where @time BETWEEN begMon and endMon or " +
+                                                                                                                            "Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
+                                                                                                                            "Shift = 'WkEndNiteA' and @time NOT BETWEEN endMon and begMon);";
+                command.Parameters.AddWithValue("@time", currentTime);
+
+                switch (currentDay)
+                {
+                    case "Monday":
+                        begDay = "begMon";
+                        endDay = "endMon";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Tuesday":
+                        begDay = "begTue";
+                        endDay = "endTue";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Wednesday":
+                        begDay = "begWed";
+                        endDay = "endWed";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Thursday":
+                        begDay = "begThu";
+                        endDay = "endThu";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Friday":
+                        begDay = "begFri";
+                        endDay = "endFri";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Saturday":
+                        begDay = "begSat";
+                        endDay = "endSat";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    case "Sunday":
+                        begDay = "begSun";
+                        endDay = "endSun";
+                        command.Parameters.AddWithValue("@beg", begDay);
+                        command.Parameters.AddWithValue("@end", endDay);
+                        break;
+                    default:
+                        break;
+                }
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -191,7 +353,6 @@ namespace Rhaegal
                 connection.Close();
 
             }
-
 
             return board;
         }
