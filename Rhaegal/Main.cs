@@ -86,8 +86,11 @@ namespace Rhaegal
         }
 
         private void Button2_Click(object sender, EventArgs e)
-        { 
-
+        {
+            string currentDay = System.DateTime.Now.DayOfWeek.ToString();
+            string currentTime = DateTime.Now.ToString("hh:mm:ss");
+            currentTime = DateTime.Now.TimeOfDay.ToString();
+            MessageBox.Show(currentTime);
         }
 
         private void RichTextBox1_TextChanged(object sender, EventArgs e)
