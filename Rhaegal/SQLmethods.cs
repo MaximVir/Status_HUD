@@ -26,60 +26,76 @@ namespace Rhaegal
             {
                 string currentDay = System.DateTime.Now.DayOfWeek.ToString();
                 string currentTime = DateTime.Now.TimeOfDay.ToString();
-                string begDay, endDay;
-
-                command.CommandText = "Select Alias, Status From Operators Where Workstream = 'LiveSite' and Shift IN(select Shift from Shifts where @time BETWEEN begMon and endMon or " +
-                                                                                                                            "Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                                                                                                            "Shift = 'WkEndNiteA' and @time NOT BETWEEN endMon and begMon);";
-                command.Parameters.AddWithValue("@time", currentTime);
+                string WorkStream = "Livesite";
 
                 switch (currentDay)
                 {
                     case "Monday":
-                        begDay = "begMon";
-                        endDay = "endMon";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begMon and endMon or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        begDay = "begTue";
-                        endDay = "endTue";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begTue and endTue or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        begDay = "begWed";
-                        endDay = "endWed";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op "+
+                                              "join Shifts as Sh "+
+                                              "on (Sh.Shift = Op.Shift) "+
+                                              "where Op.Workstream = @workstream "+
+                                              "and @time between begWed and endWed or "+
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        begDay = "begThu";
-                        endDay = "endThu";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begWed and endWed or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        begDay = "begFri";
-                        endDay = "endFri";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begFri and endFri or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                        begDay = "begSat";
-                        endDay = "endSat";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     case "Sunday":
-                        begDay = "begSun";
-                        endDay = "endSun";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     default:
                         break;
                 }
+
+                command.Parameters.AddWithValue("@time", currentTime);
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -109,60 +125,77 @@ namespace Rhaegal
             {
                 string currentDay = System.DateTime.Now.DayOfWeek.ToString();
                 string currentTime = DateTime.Now.TimeOfDay.ToString();
-                string begDay, endDay;
-
-                command.CommandText = "Select Alias, Status From Operators Where Workstream = 'Networking' and Shift IN(select Shift from Shifts where @time BETWEEN begMon and endMon or " +
-                                                                                                                            "Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                                                                                                            "Shift = 'WkEndNiteA' and @time NOT BETWEEN endMon and begMon);";
-                command.Parameters.AddWithValue("@time", currentTime);
+                string WorkStream = "Networking";
 
                 switch (currentDay)
                 {
                     case "Monday":
-                        begDay = "begMon";
-                        endDay = "endMon";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begMon and endMon or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        begDay = "begTue";
-                        endDay = "endTue";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begTue and endTue or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        begDay = "begWed";
-                        endDay = "endWed";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begWed and endWed or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        begDay = "begThu";
-                        endDay = "endThu";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begWed and endWed or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        begDay = "begFri";
-                        endDay = "endFri";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begFri and endFri or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                        begDay = "begSat";
-                        endDay = "endSat";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     case "Sunday":
-                        begDay = "begSun";
-                        endDay = "endSun";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     default:
                         break;
                 }
+
+                command.Parameters.AddWithValue("@time", currentTime);
+
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -188,60 +221,77 @@ namespace Rhaegal
             {
                 string currentDay = System.DateTime.Now.DayOfWeek.ToString();
                 string currentTime = DateTime.Now.TimeOfDay.ToString();
-                string begDay, endDay;
-
-                command.CommandText = "Select Alias, Status From Operators Where Workstream = 'Infra' and Shift IN(select Shift from Shifts where @time BETWEEN begMon and endMon or " +
-                                                                                                                            "Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                                                                                                            "Shift = 'WkEndNiteA' and @time NOT BETWEEN endMon and begMon);";
-                command.Parameters.AddWithValue("@time", currentTime);
+                string WorkStream = "Infra";
 
                 switch (currentDay)
                 {
                     case "Monday":
-                        begDay = "begMon";
-                        endDay = "endMon";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begMon and endMon or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        begDay = "begTue";
-                        endDay = "endTue";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begTue and endTue or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        begDay = "begWed";
-                        endDay = "endWed";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begWed and endWed or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        begDay = "begThu";
-                        endDay = "endThu";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begWed and endWed or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        begDay = "begFri";
-                        endDay = "endFri";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begFri and endFri or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                        begDay = "begSat";
-                        endDay = "endSat";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     case "Sunday":
-                        begDay = "begSun";
-                        endDay = "endSun";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     default:
                         break;
                 }
+
+                command.Parameters.AddWithValue("@time", currentTime);
+
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -253,13 +303,6 @@ namespace Rhaegal
                                "        /)           \n" +
                                "       (/            \n";
 
-
-//" _         ___            \n" +
-//"| |       / __)           \n" +
-//"| |____ _| |__ ____ _____ \n" +
-//"| |  _ (_   __) ___|____ |\n" +
-//"| | | | || | | |   / ___ |\n" +
-//"|_|_| |_||_| |_|   "+"|_____|";
 
                 board[2] = board[2] + label;
 
@@ -279,60 +322,77 @@ namespace Rhaegal
             {
                 string currentDay = System.DateTime.Now.DayOfWeek.ToString();
                 string currentTime = DateTime.Now.TimeOfDay.ToString();
-                string begDay, endDay;
-
-                command.CommandText = "Select Alias, Status From Operators Where Workstream = 'CXP' and Shift IN(select Shift from Shifts where @time BETWEEN begMon and endMon or " +
-                                                                                                                            "Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                                                                                                            "Shift = 'WkEndNiteA' and @time NOT BETWEEN endMon and begMon);";
-                command.Parameters.AddWithValue("@time", currentTime);
+                string WorkStream = "CXP";
 
                 switch (currentDay)
                 {
                     case "Monday":
-                        begDay = "begMon";
-                        endDay = "endMon";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begMon and endMon or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        begDay = "begTue";
-                        endDay = "endTue";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begTue and endTue or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        begDay = "begWed";
-                        endDay = "endWed";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begWed and endWed or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        begDay = "begThu";
-                        endDay = "endThu";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begWed and endWed or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        begDay = "begFri";
-                        endDay = "endFri";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+                        command.CommandText = "select Alias, sh.Shift " +
+                                              "from Operators as Op " +
+                                              "join Shifts as Sh " +
+                                              "on (Sh.Shift = Op.Shift) " +
+                                              "where Op.Workstream = @workstream " +
+                                              "and @time between begFri and endFri or " +
+                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
+                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri; ";
+                        command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                        begDay = "begSat";
-                        endDay = "endSat";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     case "Sunday":
-                        begDay = "begSun";
-                        endDay = "endSun";
-                        command.Parameters.AddWithValue("@beg", begDay);
-                        command.Parameters.AddWithValue("@end", endDay);
+
                         break;
                     default:
                         break;
                 }
+
+                command.Parameters.AddWithValue("@time", currentTime);
+
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 

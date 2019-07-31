@@ -95,6 +95,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(303, 692);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.Visible = false;
             // 
             // tabPage1
             // 
@@ -226,6 +227,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(298, 100);
             this.panel1.TabIndex = 0;
+            this.panel1.Visible = false;
             // 
             // textBox1
             // 
