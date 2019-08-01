@@ -70,8 +70,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
-                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
+                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
@@ -100,11 +100,11 @@ namespace Rhaegal
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                string label = //"----------------------------------\n" + 
+                string label =  
                                "  __              __,        \n" +
                                " ( /   o         (    o _/_  \n" +
-                               "  /   ,  _  ,__   `. ,  /  _ \n" +
-                               "(/___/(_/ |/ (/_(___)(_(__(/_\n\n\n";
+                               "  /   ,  _  ,__   `. ,  /  _ \n" +   
+                               "(/___/(_/ |/ (/_(___)(_(__(/_\n\n\n"+ "==================================\n" ;
                 board[0] = board[0] + label;
 
                 while (reader.Read())
@@ -170,8 +170,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
-                                              "sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed; ";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endThu and begThu; ";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
@@ -204,7 +204,7 @@ namespace Rhaegal
                                " _ __\n" +
                                "( /  )   _/_              /  \n" +
                                " /  / _  /  , , , __ _   /< \n" +
-                               "/  (_(/_(__(_(_/_(_)/ (_/ |_\n";
+                               "/  (_(/_(__(_(_/_(_)/ (_/ |_\n\n\n" + "==================================\n";
 
 
                 board[1] = board[1] + label;
@@ -306,7 +306,7 @@ namespace Rhaegal
                                "  / _ _   // _   __, \n" +
                                "_/_/ / /_//_/ (_(_/(_\n" +
                                "        /)           \n" +
-                               "       (/            \n";
+                               "       (/            \n" + "==================================\n";
 
 
                 board[2] = board[2] + label;
@@ -406,7 +406,7 @@ namespace Rhaegal
                               "   ,___  _,  , _ __ \n" +
                               "  /   / ( |,' ( /  )\n" +
                               " /        +    /--' \n" +
-                              "(___/  _,'| __/     \n\n\n";
+                              "(___/  _,'| __/     \n\n\n" + "==================================\n";
                 board[3] = board[3] + label;
 
 

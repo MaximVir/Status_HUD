@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Status_HUD));
             this.cxpBox = new System.Windows.Forms.RichTextBox();
             this.networkingBox = new System.Windows.Forms.RichTextBox();
             this.liveSiteBox = new System.Windows.Forms.RichTextBox();
@@ -114,14 +115,14 @@
             // operatorToolStripMenuItem1
             // 
             this.operatorToolStripMenuItem1.Name = "operatorToolStripMenuItem1";
-            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.operatorToolStripMenuItem1.Text = "Operator";
             this.operatorToolStripMenuItem1.Click += new System.EventHandler(this.OperatorToolStripMenuItem1_Click);
             // 
             // shiftToolStripMenuItem1
             // 
             this.shiftToolStripMenuItem1.Name = "shiftToolStripMenuItem1";
-            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.shiftToolStripMenuItem1.Text = "Shift";
             // 
             // modifyToolStripMenuItem
@@ -204,9 +205,10 @@
             this.ClientSize = new System.Drawing.Size(894, 675);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Status_HUD";
-            this.Text = "Status_HUD";
+            this.Text = "Caraxes v0.5";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
