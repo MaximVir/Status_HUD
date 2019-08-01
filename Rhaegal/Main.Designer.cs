@@ -46,6 +46,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cxpBox = new System.Windows.Forms.RichTextBox();
             this.infraBox = new System.Windows.Forms.RichTextBox();
             this.networkingBox = new System.Windows.Forms.RichTextBox();
@@ -77,6 +78,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Panel2.Controls.Add(this.progressBar1);
             this.splitContainer1.Panel2.Controls.Add(this.cxpBox);
             this.splitContainer1.Panel2.Controls.Add(this.infraBox);
             this.splitContainer1.Panel2.Controls.Add(this.networkingBox);
@@ -85,6 +87,7 @@
             this.splitContainer1.Size = new System.Drawing.Size(1140, 806);
             this.splitContainer1.SplitterDistance = 252;
             this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer1_SplitterMoved);
             // 
             // tabControl1
             // 
@@ -260,6 +263,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(229, 200);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(254, 23);
+            this.progressBar1.TabIndex = 1;
+            this.progressBar1.Click += new System.EventHandler(this.ProgressBar1_Click);
+            // 
             // cxpBox
             // 
             this.cxpBox.BackColor = System.Drawing.Color.Black;
@@ -366,6 +377,7 @@
         public System.Windows.Forms.RichTextBox cxpBox;
         public System.Windows.Forms.RichTextBox infraBox;
         public System.Windows.Forms.RichTextBox networkingBox;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

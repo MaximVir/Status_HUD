@@ -12,6 +12,11 @@ namespace Rhaegal
         public abstract void SetStatus(string Status, string Alias);
         public abstract string[] PostToBoard();
         public abstract int CheckExistance(string Alias);
+        public abstract void CreateOperator(string Alias, string Workstream, string Location, string Shift);
+        public abstract void ModifyShift();
+        public abstract void ModifyLocation();
+
+        public abstract void ModifyWorkstream();
 
     }
 }

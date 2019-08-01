@@ -119,5 +119,15 @@ namespace Rhaegal
         {
 
         }
+
+        private void SplitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void ProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

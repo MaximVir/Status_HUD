@@ -116,7 +116,7 @@ namespace Rhaegal
                     board[0] = board[0] + post;
                     
                 }
-                connection.Close();  
+                connection.Dispose();
 
             }
 
@@ -201,9 +201,11 @@ namespace Rhaegal
 
                 string label = //"----------------------------------\n" +
                                " _ __\n" +
-                               "( /  )   _/_              / / \n" +
+                               "( /  )   _/_              /  \n" +
                                " /  / _  /  , , , __ _   /< \n" +
-                               "/  (_(/_(__(_(_/_(_)/ (_/ |\n\n\n";
+                               "/  (_(/_(__(_(_/_(_)/ (_/ |_\n";
+
+
                 board[1] = board[1] + label;
 
                 while (reader.Read())
@@ -212,7 +214,7 @@ namespace Rhaegal
                     board[1] = board[1] + post;
 
                 }
-                connection.Close();
+                connection.Dispose();
 
             }
 
@@ -293,6 +295,7 @@ namespace Rhaegal
                 command.Parameters.AddWithValue("@time", currentTime);
 
                 connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 string label = //"----------------------------------\n" +
@@ -313,7 +316,7 @@ namespace Rhaegal
                     board[2] = board[2] + post;
 
                 }
-                connection.Close();
+                connection.Dispose();
 
             }
 
@@ -410,7 +413,7 @@ namespace Rhaegal
                     board[3] = board[3] + post;
 
                 }
-                connection.Close();
+                connection.Dispose();
 
             }
 
@@ -454,6 +457,41 @@ namespace Rhaegal
                 return count;
 
             }
+        }
+
+        public override void CreateOperator(string Alias, string Workstream, string Location, string Shift)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "insert into operators values(@alias,@workstream,null,@location,@shift);";
+
+                command.Parameters.AddWithValue("@workstream", Workstream);
+                command.Parameters.AddWithValue("@alias", Alias);
+                command.Parameters.AddWithValue("@location", Location);
+                command.Parameters.AddWithValue("@shift", Shift);
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+        }
+
+        public override void ModifyShift()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void ModifyLocation()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void ModifyWorkstream()
+        {
+            throw new NotImplementedException();
         }
     }
 }
