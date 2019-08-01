@@ -18,5 +18,7 @@ namespace Rhaegal
 
         public abstract void ModifyWorkstream();
 
+        public abstract string[] PopAlias();
+
     }
 }

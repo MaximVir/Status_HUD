@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.databaseDataSet = new Rhaegal.DatabaseDataSet();
+            this.operatorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.operatorsTableAdapter = new Rhaegal.DatabaseDataSetTableAdapters.OperatorsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operatorsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -44,6 +50,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.operatorsBindingSource;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(173, 35);
             this.comboBox1.Name = "comboBox1";
@@ -59,6 +66,20 @@
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 3;
             // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // operatorsBindingSource
+            // 
+            this.operatorsBindingSource.DataMember = "Operators";
+            this.operatorsBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // operatorsTableAdapter
+            // 
+            this.operatorsTableAdapter.ClearBeforeFill = true;
+            // 
             // Create_Operator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -69,6 +90,9 @@
             this.Controls.Add(this.button1);
             this.Name = "Create_Operator";
             this.Text = "Create_Operator";
+            this.Load += new System.EventHandler(this.Create_Operator_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.operatorsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -78,5 +102,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private DatabaseDataSet databaseDataSet;
+        private System.Windows.Forms.BindingSource operatorsBindingSource;
+        private DatabaseDataSetTableAdapters.OperatorsTableAdapter operatorsTableAdapter;
     }
 }

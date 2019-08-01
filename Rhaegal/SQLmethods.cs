@@ -114,9 +114,10 @@ namespace Rhaegal
                                   (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + 
                                   "----------------------------------\n";
                     board[0] = board[0] + post;
-                    
+
+                   
                 }
-                connection.Dispose();
+                connection.Close();
 
             }
 
@@ -213,8 +214,9 @@ namespace Rhaegal
                     string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
                     board[1] = board[1] + post;
 
+                    
                 }
-                connection.Dispose();
+                connection.Close();
 
             }
 
@@ -315,8 +317,9 @@ namespace Rhaegal
                     string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
                     board[2] = board[2] + post;
 
+                    
                 }
-                connection.Dispose();
+                connection.Close();
 
             }
 
@@ -402,7 +405,7 @@ namespace Rhaegal
                 string label = //"----------------------------------\n" +
                               "   ,___  _,  , _ __ \n" +
                               "  /   / ( |,' ( /  )\n" +
-                              " /       +    /--' \n" +
+                              " /        +    /--' \n" +
                               "(___/  _,'| __/     \n\n\n";
                 board[3] = board[3] + label;
 
@@ -413,11 +416,12 @@ namespace Rhaegal
                     board[3] = board[3] + post;
 
                 }
-                connection.Dispose();
+                connection.Close();
 
             }
 
             return board;
+
         }
 
         public override void SetStatus(string Status, string Alias)
@@ -492,6 +496,42 @@ namespace Rhaegal
         public override void ModifyWorkstream()
         {
             throw new NotImplementedException();
+        }
+
+        public override string[] PopAlias()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                string Item;
+                int i = 0;
+
+                MessageBox.Show("it isnt completely broken");
+
+                command.CommandText = "select Alias from Operators;";
+               //command.Parameters.AddWithValue("@alias", Alias);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                int count = (int)command.ExecuteScalar();
+
+                string[] List = new string[count-1];
+
+                while (reader.Read())
+                {
+                    while(count > i)
+                    {
+                        List[i] = List[i] + (string)reader.GetValue(0);
+                        i++;
+                        
+                            
+                    }
+                }
+
+
+                connection.Close();
+                return List;
+            }
         }
     }
 }

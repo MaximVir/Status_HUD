@@ -21,8 +21,15 @@ namespace Rhaegal
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string[] List = m.PopAlias();
+            comboBox1.Items.AddRange(List);
+        }
 
-           // comboBox1.Items.AddRange();
+        private void Create_Operator_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'databaseDataSet.Operators' table. You can move, or remove it, as needed.
+            this.operatorsTableAdapter.Fill(this.databaseDataSet.Operators);
+
         }
     }
 }
