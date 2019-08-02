@@ -41,6 +41,7 @@
             this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workstreamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shiftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aliasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -115,14 +116,14 @@
             // operatorToolStripMenuItem1
             // 
             this.operatorToolStripMenuItem1.Name = "operatorToolStripMenuItem1";
-            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.operatorToolStripMenuItem1.Text = "Operator";
             this.operatorToolStripMenuItem1.Click += new System.EventHandler(this.OperatorToolStripMenuItem1_Click);
             // 
             // shiftToolStripMenuItem1
             // 
             this.shiftToolStripMenuItem1.Name = "shiftToolStripMenuItem1";
-            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
             this.shiftToolStripMenuItem1.Text = "Shift";
             this.shiftToolStripMenuItem1.Click += new System.EventHandler(this.ShiftToolStripMenuItem1_Click);
             // 
@@ -131,7 +132,8 @@
             this.modifyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.locationToolStripMenuItem,
             this.workstreamToolStripMenuItem,
-            this.shiftToolStripMenuItem});
+            this.shiftToolStripMenuItem,
+            this.aliasToolStripMenuItem});
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
             this.modifyToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.modifyToolStripMenuItem.Text = "Modify";
@@ -139,20 +141,30 @@
             // locationToolStripMenuItem
             // 
             this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-            this.locationToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.locationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.locationToolStripMenuItem.Text = "Location";
+            this.locationToolStripMenuItem.Click += new System.EventHandler(this.LocationToolStripMenuItem_Click);
             // 
             // workstreamToolStripMenuItem
             // 
             this.workstreamToolStripMenuItem.Name = "workstreamToolStripMenuItem";
-            this.workstreamToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.workstreamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.workstreamToolStripMenuItem.Text = "Workstream";
+            this.workstreamToolStripMenuItem.Click += new System.EventHandler(this.WorkstreamToolStripMenuItem_Click);
             // 
             // shiftToolStripMenuItem
             // 
             this.shiftToolStripMenuItem.Name = "shiftToolStripMenuItem";
-            this.shiftToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.shiftToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.shiftToolStripMenuItem.Text = "Shift";
+            this.shiftToolStripMenuItem.Click += new System.EventHandler(this.ShiftToolStripMenuItem_Click);
+            // 
+            // aliasToolStripMenuItem
+            // 
+            this.aliasToolStripMenuItem.Name = "aliasToolStripMenuItem";
+            this.aliasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aliasToolStripMenuItem.Text = "Alias";
+            this.aliasToolStripMenuItem.Click += new System.EventHandler(this.AliasToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
@@ -165,8 +177,9 @@
             // operatorToolStripMenuItem
             // 
             this.operatorToolStripMenuItem.Name = "operatorToolStripMenuItem";
-            this.operatorToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.operatorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.operatorToolStripMenuItem.Text = "Operator";
+            this.operatorToolStripMenuItem.Click += new System.EventHandler(this.OperatorToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -236,5 +249,6 @@
         private System.Windows.Forms.ToolStripMenuItem operatorToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem shiftToolStripMenuItem1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem aliasToolStripMenuItem;
     }
 }

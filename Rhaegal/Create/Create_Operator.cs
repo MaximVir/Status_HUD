@@ -17,7 +17,6 @@ namespace Rhaegal
         public Create_Operator()
         {
             InitializeComponent();
-            comboBox1.Items.AddRange(m.PopAlias());
             comboBox2.Items.AddRange(m.PopWorkStream());
             comboBox3.Items.AddRange(m.PopShift());
             comboBox4.Items.AddRange(m.PopLocation());
@@ -25,7 +24,6 @@ namespace Rhaegal
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label1.Text = comboBox1.Text;
             
         }
 
@@ -50,6 +48,20 @@ namespace Rhaegal
         }
 
         private void ComboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            String Alias = textBox1.Text;
+            String Workstream = comboBox2.Text;
+            String Shift = comboBox3.Text;
+            String Location = comboBox4.Text;
+            m.CreateOperator(Alias, Workstream, Location, Shift);
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

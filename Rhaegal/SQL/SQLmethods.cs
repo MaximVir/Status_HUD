@@ -125,7 +125,7 @@ namespace Rhaegal
                 {
                     
 ;                   string post = "----------------------------------\n" + 
-                                  (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + 
+                                  (string)reader.GetValue(0) + "\t-\t" + (string)reader.GetValue(1) + "\n" + 
                                   "----------------------------------\n";
                     board[0] = board[0] + post;
 
@@ -538,19 +538,93 @@ namespace Rhaegal
             }
         }
 
-        public override void ModifyShift()
+        public override void DeleteOperator(string Alias)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "delete from Operators where alias = @alias;";
+
+                command.Parameters.AddWithValue("@alias", Alias);
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
         }
 
-        public override void ModifyLocation()
+        public override void ModifyShift(string Shift, string Alias)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "update Operators set Shift = @shift where Alias = @alias;";
+
+                command.Parameters.AddWithValue("@shift", Shift);
+                command.Parameters.AddWithValue("@alias", Alias);
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
         }
 
-        public override void ModifyWorkstream()
+        public override void ModifyLocation(string Location, string Alias)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "update Operators set Location = @location where Alias = @alias;";
+
+                command.Parameters.AddWithValue("@location", Location);
+                command.Parameters.AddWithValue("@alias", Alias);
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+        }
+
+        public override void ModifyWorkstream(string Workstream, string Alias)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "update Operators set Workstream = @workstream where Alias = @alias;";
+
+                command.Parameters.AddWithValue("@workstream", Workstream);
+                command.Parameters.AddWithValue("@alias", Alias);
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+        }
+
+        public override void ModifyAlias(string OldAlias, string NewAlias)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "update Operators set Alias = @new where Alias = @old;";
+
+                command.Parameters.AddWithValue("@old", OldAlias);
+                command.Parameters.AddWithValue("@new", NewAlias);
+
+                connection.Open();
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
         }
 
         public override string[] PopAlias()
@@ -561,7 +635,7 @@ namespace Rhaegal
                 List<String> populate = new List<String>();
                 string[] List;
 
-                command.CommandText = "select Alias from Operators;";
+                command.CommandText = "select Alias from Operators order by Alias;";
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
@@ -616,5 +690,7 @@ namespace Rhaegal
             string[] List = { "West", "East", "Other" };
             return List;
         }
+
+
     }
 }

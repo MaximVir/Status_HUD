@@ -14,11 +14,11 @@ namespace Rhaegal
         public abstract string[] PostToBoard();
         public abstract int CheckExistance(string Alias);
         public abstract void CreateOperator(string Alias, string Workstream, string Location, string Shift);
-        public abstract void ModifyShift();
-        public abstract void ModifyLocation();
-
-        public abstract void ModifyWorkstream();
-
+        public abstract void DeleteOperator(String Alias);
+        public abstract void ModifyShift(string Shift, string Alias);
+        public abstract void ModifyLocation(string Location, string Alias);
+        public abstract void ModifyWorkstream(string Workstream, string Alias);
+        public abstract void ModifyAlias(string OldAlias, string NewAlias);
         public abstract string[] PopAlias();
         public abstract string[] PopWorkStream();
         public abstract string[] PopShift();
