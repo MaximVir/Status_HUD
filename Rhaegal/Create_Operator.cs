@@ -17,18 +17,40 @@ namespace Rhaegal
         public Create_Operator()
         {
             InitializeComponent();
+            comboBox1.Items.AddRange(m.PopAlias());
+            comboBox2.Items.AddRange(m.PopWorkStream());
+            comboBox3.Items.AddRange(m.PopShift());
+            comboBox4.Items.AddRange(m.PopLocation());
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] List = m.PopAlias();
-            comboBox1.Items.AddRange(List);
+            label1.Text = comboBox1.Text;
+            
         }
 
         private void Create_Operator_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet.Operators' table. You can move, or remove it, as needed.
-            this.operatorsTableAdapter.Fill(this.databaseDataSet.Operators);
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

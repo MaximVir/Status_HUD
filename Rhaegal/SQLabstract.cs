@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,10 @@ namespace Rhaegal
         public abstract void ModifyWorkstream();
 
         public abstract string[] PopAlias();
+        public abstract string[] PopWorkStream();
+        public abstract string[] PopShift();
+        public abstract string[] PopLocation();
+
 
     }
 }
