@@ -678,7 +678,7 @@ namespace Rhaegal
                     populate.Add((string)reader.GetValue(0));
                 }
 
-                connection.Close();
+                connection.Dispose();
 
                 List = populate.ToArray();
 
@@ -692,6 +692,6 @@ namespace Rhaegal
             return List;
         }
 
-
+        
     }
 }
