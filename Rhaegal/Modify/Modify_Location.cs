@@ -27,6 +27,13 @@ namespace Rhaegal.Modify
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            string Alias = comboBox1.Text;
+            string Location = comboBox2.Text;
+            m.ModifyLocation(Location, Alias);
+        }
+
+        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
