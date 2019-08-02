@@ -41,5 +41,12 @@ namespace Rhaegal
 
             c_o.ShowDialog();
         }
+
+        private void ShiftToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Create_Shift c_s = new Create_Shift();
+
+            c_s.ShowDialog();
+        }
     }
 }

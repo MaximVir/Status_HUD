@@ -115,15 +115,16 @@
             // operatorToolStripMenuItem1
             // 
             this.operatorToolStripMenuItem1.Name = "operatorToolStripMenuItem1";
-            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.operatorToolStripMenuItem1.Text = "Operator";
             this.operatorToolStripMenuItem1.Click += new System.EventHandler(this.OperatorToolStripMenuItem1_Click);
             // 
             // shiftToolStripMenuItem1
             // 
             this.shiftToolStripMenuItem1.Name = "shiftToolStripMenuItem1";
-            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.shiftToolStripMenuItem1.Text = "Shift";
+            this.shiftToolStripMenuItem1.Click += new System.EventHandler(this.ShiftToolStripMenuItem1_Click);
             // 
             // modifyToolStripMenuItem
             // 
