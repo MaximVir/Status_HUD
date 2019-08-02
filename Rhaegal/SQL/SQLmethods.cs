@@ -31,7 +31,7 @@ namespace Rhaegal
                 switch (currentDay)
                 {
                     case "Monday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -42,7 +42,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -53,7 +53,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -64,7 +64,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -75,7 +75,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -86,17 +86,17 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                         command.CommandText = "select Alias, sh.Shift " +
-                                              "from Operators as Op " +
-                                              "join Shifts as Sh " +
-                                              "on (Sh.Shift = Op.Shift) " +
-                                              "where Op.Workstream = @workstream " +
-                                              "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSat and begSat;";
+                        command.CommandText = "select Alias, Location " +
+                                             "from Operators as Op " +
+                                             "join Shifts as Sh " +
+                                             "on (Sh.Shift = Op.Shift) " +
+                                             "where Op.Workstream = @workstream " +
+                                             "and @time between begFri and endFri or " +
+                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSat and begSat;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -145,7 +145,7 @@ namespace Rhaegal
                 switch (currentDay)
                 {
                     case "Monday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -156,7 +156,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -167,7 +167,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -178,7 +178,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -189,7 +189,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -200,7 +200,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                              "from Operators as Op " +
                                              "join Shifts as Sh " +
                                              "on (Sh.Shift = Op.Shift) " +
@@ -210,7 +210,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -232,7 +232,8 @@ namespace Rhaegal
                                " _ __\n" +
                                "( /  )   _/_              /  \n" +
                                " /  / _  /  , , , __ _   /< \n" +
-                               "/  (_(/_(__(_(_/_(_)/ (_/ |_\n\n\n" + "==================================\n";
+                               "/  (_(/_(__(_(_/_(_)/ (_/ |_\n\n\n" + 
+                               "==================================\n";
 
 
                 board[1] = board[1] + label;
@@ -258,7 +259,7 @@ namespace Rhaegal
                 switch (currentDay)
                 {
                     case "Monday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -269,7 +270,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -280,7 +281,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -291,7 +292,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -302,7 +303,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -313,7 +314,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                              "from Operators as Op " +
                                              "join Shifts as Sh " +
                                              "on (Sh.Shift = Op.Shift) " +
@@ -323,7 +324,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -375,7 +376,7 @@ namespace Rhaegal
                 switch (currentDay)
                 {
                     case "Monday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -386,7 +387,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -397,7 +398,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -408,7 +409,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -419,7 +420,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Friday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
@@ -430,7 +431,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                              "from Operators as Op " +
                                              "join Shifts as Sh " +
                                              "on (Sh.Shift = Op.Shift) " +
@@ -440,7 +441,7 @@ namespace Rhaegal
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
-                        command.CommandText = "select Alias, sh.Shift " +
+                        command.CommandText = "select Alias, Location " +
                                               "from Operators as Op " +
                                               "join Shifts as Sh " +
                                               "on (Sh.Shift = Op.Shift) " +
