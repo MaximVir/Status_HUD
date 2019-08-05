@@ -73,5 +73,10 @@ namespace Rhaegal
             Modify_Shift m_s = new Modify_Shift();
             m_s.ShowDialog();
         }
+
+        private void Status_HUD_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

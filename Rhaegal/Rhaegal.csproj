@@ -98,6 +98,8 @@
     <Compile Include="Delete\Delete_Operator.Designer.cs">
       <DependentUpon>Delete_Operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formatting\Formatabstract.cs" />
+    <Compile Include="Formatting\Formatmethods.cs" />
     <Compile Include="Modify\Modify_Alias.cs">
       <SubType>Form</SubType>
     </Compile>

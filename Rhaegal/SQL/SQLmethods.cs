@@ -11,11 +11,13 @@ using System.Drawing.Printing;
 using System.Threading;
 using System.Diagnostics;
 using System.Collections;
+using Rhaegal.Formatting;
 
 namespace Rhaegal
 {
     public class SQLmethods : SQLabstract
     {
+        Formatmethods f = new Formatmethods();
 
         public override string[] PostToBoard()
         {
@@ -123,13 +125,11 @@ namespace Rhaegal
 
                 while (reader.Read())
                 {
-                    
-;                   string post = "----------------------------------\n" + 
-                                  (string)reader.GetValue(0) + "\t-\t" + (string)reader.GetValue(1) + "\n" + 
+                    string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
+                    string post = "----------------------------------\n" + 
+                                  line  +
                                   "----------------------------------\n";
                     board[0] = board[0] + post;
-
-                   
                 }
                 connection.Close();
 
@@ -240,10 +240,11 @@ namespace Rhaegal
 
                 while (reader.Read())
                 {
-                    string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
+                    string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
+                    string post = "----------------------------------\n" +
+                                  line +
+                                  "----------------------------------\n";
                     board[1] = board[1] + post;
-
-                    
                 }
                 connection.Close();
 
@@ -357,10 +358,11 @@ namespace Rhaegal
 
                 while (reader.Read())
                 {
-                    string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
+                    string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
+                    string post = "----------------------------------\n" +
+                                  line +
+                                  "----------------------------------\n";
                     board[2] = board[2] + post;
-
-                    
                 }
                 connection.Close();
 
@@ -469,9 +471,11 @@ namespace Rhaegal
 
                 while (reader.Read())
                 {
-                    string post = "----------------------------------\n" + (string)reader.GetValue(0) + "\t-\t" + (String)reader.GetValue(1) + "\n" + "----------------------------------\n";
+                    string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
+                    string post = "----------------------------------\n" +
+                                  line +
+                                  "----------------------------------\n";
                     board[3] = board[3] + post;
-
                 }
                 connection.Close();
 

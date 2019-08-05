@@ -82,11 +82,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 19);
+            this.label1.Location = new System.Drawing.Point(1, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(471, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.label1.Text = "this should say something but I forgot what I was going to put here but im not go" +
+    "ing to remove it yet";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // comboBox3
