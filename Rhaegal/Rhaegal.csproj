@@ -134,6 +134,8 @@
     <Compile Include="Main\Status_HUD.Designer.cs">
       <DependentUpon>Status_HUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Time\Timeabstract.cs" />
+    <Compile Include="Time\Timemethods.cs" />
     <EmbeddedResource Include="Create\Create_Operator.resx">
       <DependentUpon>Create_Operator.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
 ﻿using Rhaegal.Modify;
+using Rhaegal.Time;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace Rhaegal
     public partial class Status_HUD : Form
     {
         readonly SQLmethods m = new SQLmethods();
+        readonly Timemethods t = new Timemethods();
+
+        
 
         public Status_HUD()
         {
@@ -29,6 +33,13 @@ namespace Rhaegal
             networkingBox.Text = newBoard[1];
             infraBox.Text = newBoard[2];
             cxpBox.Text = newBoard[3];
+
+            TimeZone zone = TimeZone.CurrentTimeZone;
+            DateTime universal = zone.ToUniversalTime(DateTime.Now);
+
+            string currentDay = System.DateTime.Now.DayOfWeek.ToString();
+            string currentTime = DateTime.Now.TimeOfDay.ToString();
+            label1.Text = t.GetTime();
         }
 
         private void OperatorToolStripMenuItem1_Click(object sender, EventArgs e)

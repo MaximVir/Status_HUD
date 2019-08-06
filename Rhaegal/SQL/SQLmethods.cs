@@ -12,22 +12,25 @@ using System.Threading;
 using System.Diagnostics;
 using System.Collections;
 using Rhaegal.Formatting;
+using Rhaegal.Time;
 
 namespace Rhaegal
 {
     public class SQLmethods : SQLabstract
     {
         Formatmethods f = new Formatmethods();
+        Timemethods t = new Timemethods();
 
         public override string[] PostToBoard()
         {
             string[] board = new string[4];
 
+            string currentDay = System.DateTime.Now.DayOfWeek.ToString();
+            string currentTime = t.GetTime();
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
-            {
-                string currentDay = System.DateTime.Now.DayOfWeek.ToString();
-                string currentTime = DateTime.Now.TimeOfDay.ToString();
+            { 
                 string WorkStream = "Livesite";
 
                 switch (currentDay)
@@ -138,8 +141,6 @@ namespace Rhaegal
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                string currentDay = System.DateTime.Now.DayOfWeek.ToString();
-                string currentTime = DateTime.Now.TimeOfDay.ToString();
                 string WorkStream = "Networking";
 
                 switch (currentDay)
@@ -253,8 +254,6 @@ namespace Rhaegal
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                string currentDay = System.DateTime.Now.DayOfWeek.ToString();
-                string currentTime = DateTime.Now.TimeOfDay.ToString();
                 string WorkStream = "Infra";
 
                 switch (currentDay)
@@ -371,8 +370,6 @@ namespace Rhaegal
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                string currentDay = System.DateTime.Now.DayOfWeek.ToString();
-                string currentTime = DateTime.Now.TimeOfDay.ToString();
                 string WorkStream = "CXP";
 
                 switch (currentDay)
