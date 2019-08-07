@@ -120,11 +120,13 @@ namespace Rhaegal
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                string label =  
-                               "  __              __,        \n" +
-                               " ( /   o         (    o _/_  \n" +
-                               "  /   ,  _  ,__   `. ,  /  _ \n" +   
-                               "(/___/(_/ |/ (/_(___)(_(__(/_\n\n\n"+ "==================================\n" ;
+                string label = "   __ _           __  _ _       \n" +
+                               "  / /(_)_   _____/ _\\(_) |_ ___ \n" +
+                               " / / | \\ \\ / / _ \\ \\ | | __/ _ \\ \n" +
+                               "/ /__| |\\ V /  __/\\ \\| | ||  __/\n" +
+                               "\\____/_| \\_/ \\___\\__/|_|\\__\\___|\n\n" +
+                               "==========================================\n";
+
                 board[0] = board[0] + label;
 
                 while (reader.Read())
@@ -132,7 +134,7 @@ namespace Rhaegal
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
                     string post = //"----------------------------------\n" + 
                                   line  +
-                                  "----------------------------------\n";
+                                  "------------------------------------------\n";
                     board[0] = board[0] + post;
                 }
                 connection.Close();
@@ -231,13 +233,13 @@ namespace Rhaegal
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                string label = //"----------------------------------\n" +
-                               " _ __\n" +
-                               "( /  )   _/_              /  \n" +
-                               " /  / _  /  , , , __ _   /< \n" +
-                               "/  (_(/_(__(_(_/_(_)/ (_/ |_\n\n\n" + 
-                               "==================================\n";
-
+                string label = "     __     _                      _    \n" +
+                               "  /\\ \\ \\___| |___      _____  _ __| | __\n" +
+                               " /  \\/ / _ \\ __\\ \\ /\\ / / _ \\| '__| |/ /\n" +
+                               "/ /\\  /  __/ |_ \\ V  V / (_) | |  |   < \n" +
+                               "\\_\\ \\/ \\___|\\__| \\_/\\_/ \\___/|_|  |_|\\_\\ \n\n" +
+                               "==========================================\n";
+                               
 
                 board[1] = board[1] + label;
 
@@ -246,7 +248,7 @@ namespace Rhaegal
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
                     string post = //"----------------------------------\n" +
                                   line +
-                                  "----------------------------------\n";
+                                  "------------------------------------------\n";
                     board[1] = board[1] + post;
                 }
                 connection.Close();
@@ -346,13 +348,12 @@ namespace Rhaegal
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                string label = //"----------------------------------\n" +
-                               "  ___                \n" +
-                               " ( /       /)        \n" +
-                               "  / _ _   // _   __, \n" +
-                               "_/_/ / /_//_/ (_(_/(_\n" +
-                               "        /)           \n" +
-                               "       (/            \n" + "==================================\n";
+                string label = "  _____        __           \n" +
+                               "  \\_   \\_ __  / _|_ __ __ _ \n" +
+                               "   / /\\/ '_ \\| |_| '__/ _` |\n" +
+                               "/\\/ /_ | | | |  _| | | (_| |\n" +
+                               "\\____/ |_| |_|_| |_|  \\__,_|\n\n" +
+                               "==========================================\n";
 
 
                 board[2] = board[2] + label;
@@ -363,7 +364,7 @@ namespace Rhaegal
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
                     string post = //"----------------------------------\n" +
                                   line +
-                                  "----------------------------------\n";
+                                  "------------------------------------------\n";
                     board[2] = board[2] + post;
                 }
                 connection.Close();
@@ -462,11 +463,12 @@ namespace Rhaegal
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                string label = //"----------------------------------\n" +
-                              "   ,___  _,  , _ __ \n" +
-                              "  /   / ( |,' ( /  )\n" +
-                              " /        +    /--' \n" +
-                              "(___/  _,'| __/     \n\n\n" + "==================================\n";
+                string label = "   _____  __  ___ \n" +
+                               "  / __\\ \\/ / / _ \\ \n" +
+                               " / /   \\  / / /_)/\n" +
+                               "/ /___ /  \\/ ___/ \n" +
+                               "\\____//_/\\_\\/     \n\n" +
+                               "==========================================\n";
                 board[3] = board[3] + label;
 
 
@@ -475,7 +477,7 @@ namespace Rhaegal
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
                     string post = //"----------------------------------\n" +
                                   line +
-                                  "----------------------------------\n";
+                                  "------------------------------------------\n";
                     board[3] = board[3] + post;
                 }
                 connection.Close();

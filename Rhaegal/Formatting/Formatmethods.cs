@@ -16,7 +16,7 @@ namespace Rhaegal.Formatting
 
         public override string Format(string top, string bottom)
         {
-            return string.Format("{0,-10}\t {1,25}", top, bottom);
+            return string.Format("{0,-10}\t {1,33}", top, bottom);
         }
     }
 }

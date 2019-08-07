@@ -155,10 +155,11 @@
             this.infraBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.infraBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infraBox.ForeColor = System.Drawing.Color.Cyan;
-            this.infraBox.Location = new System.Drawing.Point(1066, 214);
+            this.infraBox.Location = new System.Drawing.Point(1041, 214);
+            this.infraBox.MaximumSize = new System.Drawing.Size(300, 500);
             this.infraBox.Name = "infraBox";
             this.infraBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.infraBox.Size = new System.Drawing.Size(245, 536);
+            this.infraBox.Size = new System.Drawing.Size(300, 500);
             this.infraBox.TabIndex = 7;
             this.infraBox.Text = "";
             // 
@@ -168,10 +169,11 @@
             this.networkingBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.networkingBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.networkingBox.ForeColor = System.Drawing.Color.SpringGreen;
-            this.networkingBox.Location = new System.Drawing.Point(608, 214);
+            this.networkingBox.Location = new System.Drawing.Point(583, 214);
+            this.networkingBox.MaximumSize = new System.Drawing.Size(300, 500);
             this.networkingBox.Name = "networkingBox";
             this.networkingBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.networkingBox.Size = new System.Drawing.Size(245, 536);
+            this.networkingBox.Size = new System.Drawing.Size(300, 500);
             this.networkingBox.TabIndex = 6;
             this.networkingBox.Text = "";
             // 
@@ -181,11 +183,12 @@
             this.cxpBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cxpBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cxpBox.ForeColor = System.Drawing.Color.Yellow;
-            this.cxpBox.Location = new System.Drawing.Point(1525, 214);
+            this.cxpBox.Location = new System.Drawing.Point(1500, 214);
+            this.cxpBox.MaximumSize = new System.Drawing.Size(300, 500);
             this.cxpBox.Name = "cxpBox";
             this.cxpBox.ReadOnly = true;
             this.cxpBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.cxpBox.Size = new System.Drawing.Size(245, 536);
+            this.cxpBox.Size = new System.Drawing.Size(300, 500);
             this.cxpBox.TabIndex = 8;
             this.cxpBox.Text = "";
             this.cxpBox.UseWaitCursor = true;
@@ -196,10 +199,11 @@
             this.liveSiteBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.liveSiteBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liveSiteBox.ForeColor = System.Drawing.Color.LightPink;
-            this.liveSiteBox.Location = new System.Drawing.Point(150, 214);
+            this.liveSiteBox.Location = new System.Drawing.Point(125, 214);
+            this.liveSiteBox.MaximumSize = new System.Drawing.Size(300, 500);
             this.liveSiteBox.Name = "liveSiteBox";
             this.liveSiteBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.liveSiteBox.Size = new System.Drawing.Size(245, 536);
+            this.liveSiteBox.Size = new System.Drawing.Size(300, 500);
             this.liveSiteBox.TabIndex = 5;
             this.liveSiteBox.Text = "";
             // 
