@@ -132,8 +132,7 @@ namespace Rhaegal
                 while (reader.Read())
                 {
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
-                    string post = //"----------------------------------\n" + 
-                                  line  +
+                    string post = line  +
                                   "------------------------------------------\n";
                     board[0] = board[0] + post;
                 }
