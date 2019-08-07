@@ -260,7 +260,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Status_HUD";
-            this.Text = "Caraxes v0.5";
+            this.Text = "Balerion v1.0";
             this.Load += new System.EventHandler(this.Status_HUD_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
