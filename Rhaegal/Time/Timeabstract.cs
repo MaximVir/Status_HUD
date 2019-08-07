@@ -9,5 +9,6 @@ namespace Rhaegal.Time
     abstract class Timeabstract
     {
         public abstract string GetTime();
+        public abstract string GetDay();
     }
 }

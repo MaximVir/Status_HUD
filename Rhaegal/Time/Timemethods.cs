@@ -18,5 +18,16 @@ namespace Rhaegal.Time
 
             return time;
         }
+
+        public override string GetDay()
+        {
+            string day;
+
+            TimeZone zone = TimeZone.CurrentTimeZone;
+            DateTime universal = zone.ToUniversalTime(DateTime.Now);
+            day = universal.DayOfWeek.ToString();
+
+            return day;
+        }
     }
 }

@@ -47,6 +47,7 @@
             this.cxpBox = new System.Windows.Forms.RichTextBox();
             this.liveSiteBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,12 +212,25 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "label1";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(41, 222);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "label2";
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
+            // 
             // Status_HUD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1904, 792);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.liveSiteBox);
             this.Controls.Add(this.networkingBox);
@@ -254,5 +268,6 @@
         public System.Windows.Forms.RichTextBox cxpBox;
         public System.Windows.Forms.RichTextBox liveSiteBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

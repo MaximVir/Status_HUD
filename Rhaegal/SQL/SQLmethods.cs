@@ -25,7 +25,7 @@ namespace Rhaegal
         {
             string[] board = new string[4];
 
-            string currentDay = System.DateTime.Now.DayOfWeek.ToString();
+            string currentDay = t.GetDay();
             string currentTime = t.GetTime();
 
             using (SqlConnection connection = new SqlConnection(connectionString))

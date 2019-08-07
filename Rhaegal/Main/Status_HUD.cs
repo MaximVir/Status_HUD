@@ -39,7 +39,8 @@ namespace Rhaegal
 
             string currentDay = System.DateTime.Now.DayOfWeek.ToString();
             string currentTime = DateTime.Now.TimeOfDay.ToString();
-            label1.Text = t.GetTime();
+            label1.Text = t.GetDay();
+            label2.Text = t.GetTime();
         }
 
         private void OperatorToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -86,6 +87,11 @@ namespace Rhaegal
         }
 
         private void Status_HUD_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
