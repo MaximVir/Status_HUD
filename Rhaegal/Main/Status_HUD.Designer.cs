@@ -48,6 +48,7 @@
             this.liveSiteBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,14 +78,14 @@
             // operatorToolStripMenuItem1
             // 
             this.operatorToolStripMenuItem1.Name = "operatorToolStripMenuItem1";
-            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.operatorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.operatorToolStripMenuItem1.Text = "Operator";
             this.operatorToolStripMenuItem1.Click += new System.EventHandler(this.OperatorToolStripMenuItem1_Click);
             // 
             // shiftToolStripMenuItem1
             // 
             this.shiftToolStripMenuItem1.Name = "shiftToolStripMenuItem1";
-            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.shiftToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.shiftToolStripMenuItem1.Text = "Shift";
             this.shiftToolStripMenuItem1.Click += new System.EventHandler(this.ShiftToolStripMenuItem1_Click);
             // 
@@ -102,28 +103,28 @@
             // locationToolStripMenuItem
             // 
             this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-            this.locationToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.locationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.locationToolStripMenuItem.Text = "Location";
             this.locationToolStripMenuItem.Click += new System.EventHandler(this.LocationToolStripMenuItem_Click);
             // 
             // workstreamToolStripMenuItem
             // 
             this.workstreamToolStripMenuItem.Name = "workstreamToolStripMenuItem";
-            this.workstreamToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.workstreamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.workstreamToolStripMenuItem.Text = "Workstream";
             this.workstreamToolStripMenuItem.Click += new System.EventHandler(this.WorkstreamToolStripMenuItem_Click);
             // 
             // shiftToolStripMenuItem
             // 
             this.shiftToolStripMenuItem.Name = "shiftToolStripMenuItem";
-            this.shiftToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.shiftToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.shiftToolStripMenuItem.Text = "Shift";
             this.shiftToolStripMenuItem.Click += new System.EventHandler(this.ShiftToolStripMenuItem_Click);
             // 
             // aliasToolStripMenuItem
             // 
             this.aliasToolStripMenuItem.Name = "aliasToolStripMenuItem";
-            this.aliasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.aliasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aliasToolStripMenuItem.Text = "Alias";
             this.aliasToolStripMenuItem.Click += new System.EventHandler(this.AliasToolStripMenuItem_Click);
             // 
@@ -154,10 +155,10 @@
             this.infraBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.infraBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infraBox.ForeColor = System.Drawing.Color.Cyan;
-            this.infraBox.Location = new System.Drawing.Point(1066, 50);
+            this.infraBox.Location = new System.Drawing.Point(1066, 214);
             this.infraBox.Name = "infraBox";
             this.infraBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.infraBox.Size = new System.Drawing.Size(245, 700);
+            this.infraBox.Size = new System.Drawing.Size(245, 536);
             this.infraBox.TabIndex = 7;
             this.infraBox.Text = "";
             // 
@@ -167,10 +168,10 @@
             this.networkingBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.networkingBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.networkingBox.ForeColor = System.Drawing.Color.SpringGreen;
-            this.networkingBox.Location = new System.Drawing.Point(608, 50);
+            this.networkingBox.Location = new System.Drawing.Point(608, 214);
             this.networkingBox.Name = "networkingBox";
             this.networkingBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.networkingBox.Size = new System.Drawing.Size(245, 700);
+            this.networkingBox.Size = new System.Drawing.Size(245, 536);
             this.networkingBox.TabIndex = 6;
             this.networkingBox.Text = "";
             // 
@@ -180,11 +181,11 @@
             this.cxpBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cxpBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cxpBox.ForeColor = System.Drawing.Color.Yellow;
-            this.cxpBox.Location = new System.Drawing.Point(1525, 50);
+            this.cxpBox.Location = new System.Drawing.Point(1525, 214);
             this.cxpBox.Name = "cxpBox";
             this.cxpBox.ReadOnly = true;
             this.cxpBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.cxpBox.Size = new System.Drawing.Size(245, 700);
+            this.cxpBox.Size = new System.Drawing.Size(245, 536);
             this.cxpBox.TabIndex = 8;
             this.cxpBox.Text = "";
             this.cxpBox.UseWaitCursor = true;
@@ -195,10 +196,10 @@
             this.liveSiteBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.liveSiteBox.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liveSiteBox.ForeColor = System.Drawing.Color.LightPink;
-            this.liveSiteBox.Location = new System.Drawing.Point(150, 50);
+            this.liveSiteBox.Location = new System.Drawing.Point(150, 214);
             this.liveSiteBox.Name = "liveSiteBox";
             this.liveSiteBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.liveSiteBox.Size = new System.Drawing.Size(245, 700);
+            this.liveSiteBox.Size = new System.Drawing.Size(245, 536);
             this.liveSiteBox.TabIndex = 5;
             this.liveSiteBox.Text = "";
             // 
@@ -206,23 +207,40 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 190);
+            this.label1.Location = new System.Drawing.Point(1494, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(26, 13);
             this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
+            this.label1.Text = "text";
+            this.label1.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(41, 222);
+            this.label2.Location = new System.Drawing.Point(1494, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "label2";
+            this.label2.Text = "text";
+            this.label2.Visible = false;
             this.label2.Click += new System.EventHandler(this.Label2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.AcceptsReturn = true;
+            this.textBox1.BackColor = System.Drawing.Color.Black;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox1.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox1.Location = new System.Drawing.Point(526, 26);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(890, 182);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // Status_HUD
             // 
@@ -230,6 +248,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1904, 792);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.liveSiteBox);
@@ -269,5 +288,6 @@
         public System.Windows.Forms.RichTextBox liveSiteBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

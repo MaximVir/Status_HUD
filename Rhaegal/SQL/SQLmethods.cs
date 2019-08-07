@@ -18,8 +18,8 @@ namespace Rhaegal
 {
     public class SQLmethods : SQLabstract
     {
-        Formatmethods f = new Formatmethods();
-        Timemethods t = new Timemethods();
+        readonly Formatmethods f = new Formatmethods();
+        readonly Timemethods t = new Timemethods();
 
         public override string[] PostToBoard()
         {
@@ -42,8 +42,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begMon and endMon or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endMon and begMon or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endMon and begMon;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
@@ -53,8 +53,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begTue and endTue or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endTue and begTue or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endTue and begTue;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
@@ -64,8 +64,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endWed and begWed or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endWed and begWed;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
@@ -75,7 +75,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endThu and begThu or " +
                                               "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endThu and begThu;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
@@ -86,8 +87,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endFri and begFri or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endFri and begFri;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
@@ -97,7 +98,7 @@ namespace Rhaegal
                                              "on (Sh.Shift = Op.Shift) " +
                                              "where Op.Workstream = @workstream " +
                                              "and @time between begFri and endFri or " +
-                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSat and begSat;";
+                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSat and begSat;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
@@ -107,7 +108,7 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSun and begSun;";
+                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSun and begSun;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     default:
@@ -129,7 +130,7 @@ namespace Rhaegal
                 while (reader.Read())
                 {
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
-                    string post = "----------------------------------\n" + 
+                    string post = //"----------------------------------\n" + 
                                   line  +
                                   "----------------------------------\n";
                     board[0] = board[0] + post;
@@ -152,8 +153,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begMon and endMon or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endMon and begMon or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endMon and begMon;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
@@ -163,8 +164,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begTue and endTue or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endTue and begTue or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endTue and begTue;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
@@ -174,8 +175,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endWed and begWed or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endWed and begWed;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
@@ -185,7 +186,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endThu and begThu or " +
                                               "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endThu and begThu;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
@@ -196,8 +198,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endFri and begFri or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endFri and begFri;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
@@ -207,7 +209,7 @@ namespace Rhaegal
                                              "on (Sh.Shift = Op.Shift) " +
                                              "where Op.Workstream = @workstream " +
                                              "and @time between begFri and endFri or " +
-                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSat and begSat;";
+                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSat and begSat;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
@@ -217,7 +219,7 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSun and begSun;";
+                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSun and begSun;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     default:
@@ -242,7 +244,7 @@ namespace Rhaegal
                 while (reader.Read())
                 {
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
-                    string post = "----------------------------------\n" +
+                    string post = //"----------------------------------\n" +
                                   line +
                                   "----------------------------------\n";
                     board[1] = board[1] + post;
@@ -265,8 +267,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begMon and endMon or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endMon and begMon or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endMon and begMon;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
@@ -276,8 +278,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begTue and endTue or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endTue and begTue or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endTue and begTue;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
@@ -287,8 +289,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endWed and begWed or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endWed and begWed;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
@@ -298,7 +300,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endThu and begThu or " +
                                               "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endThu and begThu;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
@@ -309,8 +312,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endFri and begFri or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endFri and begFri;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
@@ -320,7 +323,7 @@ namespace Rhaegal
                                              "on (Sh.Shift = Op.Shift) " +
                                              "where Op.Workstream = @workstream " +
                                              "and @time between begFri and endFri or " +
-                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSat and begSat;";
+                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSat and begSat;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
@@ -330,7 +333,7 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSun and begSun;";
+                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSun and begSun;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     default:
@@ -358,7 +361,7 @@ namespace Rhaegal
                 while (reader.Read())
                 {
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
-                    string post = "----------------------------------\n" +
+                    string post = //"----------------------------------\n" +
                                   line +
                                   "----------------------------------\n";
                     board[2] = board[2] + post;
@@ -381,8 +384,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begMon and endMon or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endMon and begMon or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endMon and begMon; ";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endMon and begMon or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endMon and begMon;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Tuesday":
@@ -392,8 +395,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begTue and endTue or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endTue and begTue or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endTue and begTue;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endTue and begTue or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endTue and begTue;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Wednesday":
@@ -403,8 +406,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endWed and begWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'NightsEast' and @time NOT BETWEEN endWed and begWed;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endWed and begWed or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endWed and begWed;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Thursday":
@@ -414,7 +417,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begWed and endWed or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endThu and begThu or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endThu and begThu or " +
                                               "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endThu and begThu;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
@@ -425,8 +429,8 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and Sh.Shift = 'Mid' and @time NOT BETWEEN endFri and begFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'NightsEast' and @time NOT BETWEEN endFri and begFri;";
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids' and @time NOT BETWEEN endFri and begFri or " +
+                                              "Op.Workstream = @workstream and Sh.Shift = 'Mids_East' and @time NOT BETWEEN endFri and begFri;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Saturday":
@@ -436,7 +440,7 @@ namespace Rhaegal
                                              "on (Sh.Shift = Op.Shift) " +
                                              "where Op.Workstream = @workstream " +
                                              "and @time between begFri and endFri or " +
-                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSat and begSat;";
+                                             "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSat and begSat;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     case "Sunday":
@@ -446,7 +450,7 @@ namespace Rhaegal
                                               "on (Sh.Shift = Op.Shift) " +
                                               "where Op.Workstream = @workstream " +
                                               "and @time between begFri and endFri or " +
-                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Nite_East_A' and @time NOT BETWEEN endSun and begSun;";
+                                              "Op.Workstream = @workstream and sh.Shift = 'WkEd_Days_A' and @time NOT BETWEEN endSun and begSun;";
                         command.Parameters.AddWithValue("@workstream", WorkStream);
                         break;
                     default:
@@ -469,7 +473,7 @@ namespace Rhaegal
                 while (reader.Read())
                 {
                     string line = f.printFormatted((string)reader.GetValue(0), (string)reader.GetValue(1));
-                    string post = "----------------------------------\n" +
+                    string post = //"----------------------------------\n" +
                                   line +
                                   "----------------------------------\n";
                     board[3] = board[3] + post;

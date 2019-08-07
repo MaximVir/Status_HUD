@@ -16,12 +16,19 @@ namespace Rhaegal
     {
         readonly SQLmethods m = new SQLmethods();
         readonly Timemethods t = new Timemethods();
+        readonly string TitleBar = "  ________________  .______________       _________________ ________      \n" +
+                                   " /  _____/\\______ \\ |   \\__    ___/      /  _____/\\_   ___ \\\\_____  \\     \n" +
+                                   "/   \\  ___ |    |  \\|   | |    |        /   \\  ___/    \\  \\/  _(__  <    \n" +
+                                   "\\    \\_\\  \\|    `   \\   | |    |        \\    \\_\\  \\     \\____/       \\   \n" +
+                                   "  \\______  /_______  /___| |____|         \\______  /\\______  /______  /     \n" +
+                                   "       \\/        \\/                            \\/        \\/       \\/     \n";
 
-        
+
 
         public Status_HUD()
         {
             InitializeComponent();
+            textBox1.Text = TitleBar;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -92,6 +99,11 @@ namespace Rhaegal
         }
 
         private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
