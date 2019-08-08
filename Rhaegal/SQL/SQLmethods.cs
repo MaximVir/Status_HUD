@@ -562,15 +562,14 @@ namespace Rhaegal
             }
         }
 
-        public override void ModifyShift(string Shift, string Alias)
+        public override void ModifyShift(string Query)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "update Operators set Shift = @shift where Alias = @alias;";
+                command.CommandText = "@query";
 
-                command.Parameters.AddWithValue("@shift", Shift);
-                command.Parameters.AddWithValue("@alias", Alias);
+                command.Parameters.AddWithValue("@query", Query);
 
                 connection.Open();
 

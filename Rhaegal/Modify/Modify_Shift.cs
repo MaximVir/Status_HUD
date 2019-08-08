@@ -22,9 +22,9 @@ namespace Rhaegal
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            string Alias = comboBox1.Text;
-            string Shift = comboBox2.Text;
-            m.ModifyShift(Shift, Alias);
+            //string Alias = comboBox1.Text;
+            //string Shift = comboBox2.Text;
+            //m.ModifyShift(Shift);
         }
     }
 }

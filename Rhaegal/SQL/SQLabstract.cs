@@ -15,7 +15,7 @@ namespace Rhaegal
         public abstract int CheckExistance(string Alias);
         public abstract void CreateOperator(string Alias, string Workstream, string Location, string Shift);
         public abstract void DeleteOperator(String Alias);
-        public abstract void ModifyShift(string Shift, string Alias);
+        public abstract void ModifyShift(string Query);
         public abstract void ModifyLocation(string Location, string Alias);
         public abstract void ModifyWorkstream(string Workstream, string Alias);
         public abstract void ModifyAlias(string OldAlias, string NewAlias);
