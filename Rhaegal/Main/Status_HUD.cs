@@ -107,5 +107,10 @@ namespace Rhaegal
         {
 
         }
+
+        private void TestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

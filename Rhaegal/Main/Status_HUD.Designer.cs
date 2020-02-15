@@ -74,6 +74,7 @@
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.testToolStripMenuItem.Text = "Create";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.TestToolStripMenuItem_Click);
             // 
             // operatorToolStripMenuItem1
             // 
@@ -103,28 +104,28 @@
             // locationToolStripMenuItem
             // 
             this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-            this.locationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.locationToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.locationToolStripMenuItem.Text = "Location";
             this.locationToolStripMenuItem.Click += new System.EventHandler(this.LocationToolStripMenuItem_Click);
             // 
             // workstreamToolStripMenuItem
             // 
             this.workstreamToolStripMenuItem.Name = "workstreamToolStripMenuItem";
-            this.workstreamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.workstreamToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.workstreamToolStripMenuItem.Text = "Workstream";
             this.workstreamToolStripMenuItem.Click += new System.EventHandler(this.WorkstreamToolStripMenuItem_Click);
             // 
             // shiftToolStripMenuItem
             // 
             this.shiftToolStripMenuItem.Name = "shiftToolStripMenuItem";
-            this.shiftToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.shiftToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.shiftToolStripMenuItem.Text = "Shift";
             this.shiftToolStripMenuItem.Click += new System.EventHandler(this.ShiftToolStripMenuItem_Click);
             // 
             // aliasToolStripMenuItem
             // 
             this.aliasToolStripMenuItem.Name = "aliasToolStripMenuItem";
-            this.aliasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aliasToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.aliasToolStripMenuItem.Text = "Alias";
             this.aliasToolStripMenuItem.Click += new System.EventHandler(this.AliasToolStripMenuItem_Click);
             // 
