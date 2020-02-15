@@ -696,7 +696,6 @@ namespace Rhaegal
             string[] List = { "West", "East", "Other" };
             return List;
         }
-
-        
+   
     }
 }

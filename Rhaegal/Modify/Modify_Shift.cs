@@ -12,7 +12,7 @@ namespace Rhaegal
 {
     public partial class Modify_Shift : Form
     {
-        SQLmethods m = new SQLmethods();
+        readonly SQLmethods m = new SQLmethods();
         public Modify_Shift()
         {
             InitializeComponent();

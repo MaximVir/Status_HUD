@@ -18,7 +18,6 @@ namespace Rhaegal.Time
 
             return time;
         }
-
         public override string GetDay()
         {
             string day;
